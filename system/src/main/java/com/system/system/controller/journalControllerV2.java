@@ -18,12 +18,12 @@ public class journalControllerV2 {
     @Autowired
     private journalEntryService journalEntryService;
 
-    @GetMapping
+    @GetMapping("/get")
     public List<journalEntry> getALl(){
         return journalEntryService.getAll();
     }
 
-    @PostMapping
+    @PostMapping("/send")
     public journalEntry createEntry(@RequestBody journalEntry myEntry){
         myEntry.setDate(LocalDateTime.now());
         journalEntryService.saveEntry(myEntry);
